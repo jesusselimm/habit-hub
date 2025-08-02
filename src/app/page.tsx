@@ -2,6 +2,8 @@
 import RotatingText from "@/components/ui/rotatingText";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { Brain, ChartColumnBig, ClipboardClock, CircleFadingPlus, Plus, Rocket, RotateCw, Sparkles, User, UserRound, CircleFadingArrowUp } from "lucide-react";
+import { CometCard } from "@/components/ui/comet-card";
 
 export default function LandingPage() {
   const rotatingWords = [
@@ -41,97 +43,126 @@ export default function LandingPage() {
             layout
             layoutId="rotating-box"
             transition={{ type: "spring", damping: 25, stiffness: 300, duration: 2 }}
-            className="inline-flex items-center justify-center bg-[#0466c8] text-black rounded-full px-5 py-1"
+            className="inline-flex items-center justify-center bg-[#0466c8] rounded-full px-5 py-1" style={{ color: 'var(--color-dark-blue)' }}
           >
           <RotatingText
             texts={rotatingWords}
-    mainClassName="inline-block overflow-hidden align-text-bottom"
-    staggerFrom="last"
-    initial={{ y: "100%", opacity: 0 }}
-    animate={{ y: 0, opacity: 1 }}
-    exit={{ y: "-120%", opacity: 0 }}
-    staggerDuration={0.025}
-    splitLevelClassName="overflow-hidden pb-1"
-    transition={{ type: "spring", damping: 30, stiffness: 300 }}
+            mainClassName="inline-block overflow-hidden align-text-bottom"
+            staggerFrom="last"
+            initial={{ y: "100%", opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: "-120%", opacity: 0 }}
+            staggerDuration={0.025}
+            splitLevelClassName="overflow-hidden pb-1"
+            transition={{ type: "spring", damping: 30, stiffness: 300 }}
             rotationInterval={2000}
           />
         </motion.span>
       </h1>
 
-        <p className="text-center text-black max-w-3xl mb-10 text-xl leading-relaxed">
+        <p className="text-center text-black max-w-3xl mb-10 text-xl leading-relaxed mt-4">
           A modern, intelligent platform that helps you build sustainable habits<br />
           and stay motivated on your journey to success.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4">
-          <Button className="px-8 py-3 rounded-full font-semibold shadow bg-black hover:bg-dark-blue text-white flex items-center gap-2">
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clipRule="evenodd" />
-            </svg>
+          <Button className="w-[222px] h-[60px] rounded-full font-extrabold text-xl shadow bg-black hover:bg-dark-blue text-white flex items-center justify-center gap-2">
+            <Sparkles className="size-6" />
             Get Early Access
           </Button>
-          <Button variant="outline" className="px-8 py-3 rounded-full font-semibold border-gray text-black hover:bg-light-gray flex items-center gap-2">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-            </svg>
+          <Button variant="outline" className="w-[182px] h-[60px] rounded-full font-extrabold text-xl border-gray text-black hover:bg-light-gray flex items-center justify-center gap-2">
+            <UserRound className="size-6" />
             Contact Us
           </Button>
         </div>
-
-        
-
       </section>
 
       {/* Feature Cards */}
-      <section className="w-full max-w-6xl mx-auto py-16 px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* AI Suggestion */}
-          <div className="bg-white rounded-2xl p-8 shadow-sm">
+      <section className="w-full max-w-6xl mx-auto py-16 px-4 mt-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Easy Tracking */}
+        <CometCard>
+          <div className="border-2 border-white bg-gradient-to-b from-[#f5f5f5] to-[#ffffff] rounded-2xl p-6 shadow-sm w-[200px] h-[200px] transform rotate-[-8deg] flex flex-col justify-between">
             <div className="w-12 h-12 bg-blue/10 rounded-full flex items-center justify-center mb-6">
-              <svg className="w-6 h-6 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-              </svg>
+              <ClipboardClock className="size-10" style={{ color: 'var(--color-dark-blue)' }} />
             </div>
-            <h3 className="text-xl font-semibold mb-2 text-black">AI Suggestion</h3>
-            <p className="text-gray mb-4">Get <strong>personalized</strong> habit tips and reminders, powered by <strong>smart AI</strong>.</p>
+            <h3 className="text-base font-bold mb-2" style={{ color: 'var(--color-black)' }}>Easy Tracking</h3>
+            <p className="font-bold mb-4 text-sm" style={{ color: 'var(--color-gray)' }}>Track your habits <strong style={{ color: 'var(--color-black)' }}>effortlessly</strong> with our clean, <strong style={{ color: 'var(--color-black)' }}>intuitive interface</strong>.</p>
           </div>
+        </CometCard>
 
-          {/* Easy Tracking */}
-          <div className="bg-white rounded-2xl p-8 shadow-sm">
-            <div className="w-12 h-12 bg-blue/10 rounded-full flex items-center justify-center mb-6">
-              <svg className="w-6 h-6 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-              </svg>
+        {/* AI Suggestion */}
+          <CometCard>
+            <div className="border-2 border-white bg-gradient-to-b from-[#f5f5f5] to-[#ffffff] rounded-2xl p-6 shadow-sm w-[200px] h-[200px] transform rotate-[4deg] flex flex-col justify-between" style={{ color: 'var(--color-dark-blue)' }}>
+              <div className="w-12 h-12 bg-blue/10 rounded-full flex items-center justify-center mb-6">
+                <Brain className="size-10" style={{ color: 'var(--color-dark-blue)' }} />
+              </div>
+              <h3 className="text-base font-bold mb-2" style={{ color: 'var(--color-black)' }} >AI Suggestion</h3>
+              <p className="font-bold mb-4 text-sm" style={{ color: 'var(--color-gray)' }}>Get <strong style={{ color: 'var(--color-black)' }}>personalized</strong> habit tips and reminders, powered by <strong style={{ color: 'var(--color-black)' }}>smart AI</strong>.</p>
             </div>
-            <h3 className="text-xl font-semibold mb-2 text-black">Easy Tracking</h3>
-            <p className="text-gray mb-4">Track your habits <strong>effortlessly</strong> with our clean, <strong>intuitive interface</strong>.</p>
-          </div>
+          </CometCard>
 
-          {/* Detailed Analytics */}
-          <div className="bg-white rounded-2xl p-8 shadow-sm">
-            <div className="w-12 h-12 bg-blue/10 rounded-full flex items-center justify-center mb-6">
-              <svg className="w-6 h-6 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
+        {/* Motivation Boost */}
+          <CometCard>
+            <div className="border-2 border-white bg-gradient-to-b from-[#f5f5f5] to-[#ffffff] rounded-2xl p-6 shadow-sm w-[200px] h-[200px] transform rotate-[-8deg] flex flex-col justify-between" style={{ color: 'var(--color-dark-blue)' }}>
+              <div className="w-12 h-12 bg-blue/10 rounded-full flex items-center justify-center mb-6">
+                <Rocket className="size-10" style={{ color: 'var(--color-dark-blue)' }} />
+              </div>
+              <h3 className="text-base font-bold mb-2" style={{ color: 'var(--color-black)' }} >Motivation Boost</h3>
+              <p className="font-bold mb-4 text-sm" style={{ color: 'var(--color-gray)' }}>Stay <strong style={{ color: 'var(--color-black)' }}>inspired</strong> with daily <strong style={{ color: 'var(--color-black)' }}>streaks, progress charts,</strong> and <strong style={{ color: 'var(--color-black)' }}>positive</strong> feedback.</p>
             </div>
-            <h3 className="text-xl font-semibold mb-2 text-black">Detailed Analytics</h3>
-            <p className="text-gray mb-4"><strong>Visualize</strong> your journey and <strong>spot patterns</strong> to improve every day.</p>
-          </div>
+          </CometCard>
+
+        {/* Detailed Analytics */}
+          <CometCard>
+            <div className="border-2 border-white bg-gradient-to-b from-[#f5f5f5] to-[#ffffff] rounded-2xl p-6 shadow-sm w-[200px] h-[200px] transform rotate-[8deg] flex flex-col justify-between" style={{ color: 'var(--color-dark-blue)' }}>
+              <div className="w-12 h-12 bg-blue/10 rounded-full flex items-center justify-center mb-6">
+                <ChartColumnBig className="size-10" style={{ color: 'var(--color-dark-blue)' }} />
+              </div>
+              <h3 className="text-base font-bold mb-2" style={{ color: 'var(--color-black)' }} >Detailed Analytics</h3>
+              <p className="font-bold mb-4 text-sm" style={{ color: 'var(--color-gray)' }}><strong style={{ color: 'var(--color-black)' }}>Visualize</strong> your journey and <strong style={{ color: 'var(--color-black)' }}>spot patterns</strong> to improve every day.</p>
+            </div>
+          </CometCard>
         </div>
       </section>
 
-      {/* Motivation Boost Section */}
-      <section className="w-full max-w-4xl mx-auto py-16 px-4 text-center">
-        <div className="bg-white rounded-2xl p-12 shadow-sm">
-          <div className="w-16 h-16 bg-blue/10 rounded-full flex items-center justify-center mx-auto mb-6">
-            <svg className="w-8 h-8 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
+      {/* Instant Onboarding Section */}
+      <section className="w-full max-w-6xl mx-auto py-20 px-4 text-center mt-20">
+        <h2 className="text-xl font-bold mb-6 text-black">Instant Onboarding</h2>
+        <p className="text-center max-w-4xl mx-auto mb-16 text-l leading-relaxed" style={{ color: 'var(--color-black)' }}>
+          "No more endless forms or complex dashboards. Begin tracking<br />
+          and improving your habits right away, with a platform that works<br />
+          as intuitively as you do."
+        </p>
+        
+        {/* Steps */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-4xl mx-auto">
+          {/* Step 1: Create Account */}
+          <div className="border-2 border-white bg-gradient-to-b from-[#f5f5f5] to-[#ffffff] rounded-2xl p-6 shadow-sm w-[200px] h-[170px] flex flex-col text-left justify-end" style={{ color: 'var(--color-dark-blue)' }}>
+            <div className="w-12 h-12 bg-blue/10 rounded-full flex items-center justify-center mb-6">
+              <User className="size-10" style={{ color: 'var(--color-black)' }} />
+            </div>
+            <p className="text-base font-bold mb-2" style={{ color: 'var(--color-gray)' }}>Step-1:</p>
+            <h3 className="text-base font-bold" style={{ color: 'var(--color-blue)' }}>Create Account</h3>
           </div>
-          <h2 className="text-2xl font-bold mb-4 text-black">Motivation Boost</h2>
-          <p className="text-gray text-lg">
-            Get <strong>inspired</strong> with daily <strong>streaks, progress charts,</strong> and <strong>positive feedback</strong>.
-          </p>
+
+          {/* Step 2: Add Habits */}
+          <div className="border-2 border-white bg-gradient-to-b from-[#f5f5f5] to-[#ffffff] rounded-2xl p-6 shadow-sm w-[200px] h-[170px] flex flex-col text-left justify-end" style={{ color: 'var(--color-dark-blue)' }}>
+              <div className="w-12 h-12 bg-blue/10 rounded-full flex items-center justify-center mb-6">
+              <CircleFadingPlus className="size-10" style={{ color: 'var(--color-black)' }} />
+            </div>
+            <p className="text-base font-bold mb-2" style={{ color: 'var(--color-gray)' }}>Step-2:</p>
+            <h3 className="text-base font-bold" style={{ color: 'var(--color-blue)' }}>Add Habits</h3>
+          </div>
+
+          {/* Step 3: Track & Improve */}
+          <div className="border-2 border-white bg-gradient-to-b from-[#f5f5f5] to-[#ffffff] rounded-2xl p-6 shadow-sm w-[200px] h-[170px] flex flex-col text-left justify-end" style={{ color: 'var(--color-dark-blue)' }}>
+            <div className="w-12 h-12 bg-blue/10 rounded-full flex items-center justify-center mb-6">
+              <CircleFadingArrowUp className="size-10" style={{ color: 'var(--color-black)' }} />
+            </div>
+            <p className="text-base font-bold mb-2" style={{ color: 'var(--color-gray)' }}>Step-3:</p>
+            <h3 className="text-base font-bold" style={{ color: 'var(--color-blue)' }}>Track & Improve</h3>
+          </div>
         </div>
       </section>
     </main>
