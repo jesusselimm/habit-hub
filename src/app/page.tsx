@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Brain, ChartColumnBig, ClipboardClock, CircleFadingPlus, Plus, Rocket, RotateCw, Sparkles, User, UserRound, CircleFadingArrowUp } from "lucide-react";
 import { CometCard } from "@/components/ui/comet-card";
@@ -41,6 +42,8 @@ const InfiniteMovingCards = dynamic(() => import("@/components/ui/infinite-movin
 });
 
 export default function LandingPage() {
+  const [activeSection, setActiveSection] = useState('home');
+  
   const rotatingWords = [
     "Coach",
     "Mentor",
@@ -83,27 +86,80 @@ export default function LandingPage() {
   ];
 
   return (
-    <main className="bg-light-gray min-h-screen">
-      {/* Navigation */}
-      <nav className="w-full flex justify-center pt-6 pb-4">
-        <div className="bg-white rounded-full shadow-sm flex px-2 py-1 gap-2">
-          <a
-            href="#"
-            className="text-sm font-medium px-4 py-2 rounded-full bg-black text-white"
-          >
-            Let's Start
-          </a>
-          <a
-            href="#"
-            className="text-sm font-medium px-4 py-2 rounded-full text-gray hover:bg-light-gray transition"
-          >
-            Benefits
-          </a>
+          <main className="bg-light-gray min-h-screen">
+        {/* Navigation */}
+        <nav className="sticky top-0 z-50 w-full bg-light-gray/80 backdrop-blur-md border-b border-white/20 shadow-sm">
+          <div className="max-w-6xl mx-auto flex justify-between items-center py-4 px-4">
+          {/* Logo */}
+          <div className="flex items-center gap-3">
+            <img 
+              src="/image/HabitHub-Logo.svg" 
+              alt="HabitHub Logo" 
+              className="w-8 h-8"
+            />
+            <h1 className="text-xl font-bold" style={{ color: 'var(--color-blue)' }}>
+              HabitHub
+            </h1>
+          </div>
+
+          {/* Navigation Links */}
+          <div className="flex items-center gap-8">
+            <a
+              href="#home"
+              onClick={() => setActiveSection('home')}
+              className="text-sm font-bold transition-colors duration-200"
+              style={{ color: activeSection === 'home' ? 'var(--color-blue)' : 'var(--color-gray)' }}
+              onMouseEnter={(e) => activeSection !== 'home' && ((e.currentTarget as HTMLElement).style.color = 'var(--color-blue)')}
+              onMouseLeave={(e) => activeSection !== 'home' && ((e.currentTarget as HTMLElement).style.color = 'var(--color-gray)')}
+            >
+              Home
+            </a>
+            <a
+              href="#features"
+              onClick={() => setActiveSection('features')}
+              className="text-sm font-bold transition-colors duration-200"
+              style={{ color: activeSection === 'features' ? 'var(--color-blue)' : 'var(--color-gray)' }}
+              onMouseEnter={(e) => activeSection !== 'features' && ((e.currentTarget as HTMLElement).style.color = 'var(--color-blue)')}
+              onMouseLeave={(e) => activeSection !== 'features' && ((e.currentTarget as HTMLElement).style.color = 'var(--color-gray)')}
+            >
+              Features
+            </a>
+            <a
+              href="#testimonials"
+              onClick={() => setActiveSection('testimonials')}
+              className="text-sm font-bold transition-colors duration-200"
+              style={{ color: activeSection === 'testimonials' ? 'var(--color-blue)' : 'var(--color-gray)' }}
+              onMouseEnter={(e) => activeSection !== 'testimonials' && ((e.currentTarget as HTMLElement).style.color = 'var(--color-blue)')}
+              onMouseLeave={(e) => activeSection !== 'testimonials' && ((e.currentTarget as HTMLElement).style.color = 'var(--color-gray)')}
+            >
+              Testimonial
+            </a>
+            <a
+              href="#"
+              onClick={() => setActiveSection('pricing')}
+              className="text-sm font-bold transition-colors duration-200"
+              style={{ color: activeSection === 'pricing' ? 'var(--color-blue)' : 'var(--color-gray)' }}
+              onMouseEnter={(e) => activeSection !== 'pricing' && ((e.currentTarget as HTMLElement).style.color = 'var(--color-blue)')}
+              onMouseLeave={(e) => activeSection !== 'pricing' && ((e.currentTarget as HTMLElement).style.color = 'var(--color-gray)')}
+            >
+              Pricing
+            </a>
+            <a
+              href="#"
+              onClick={() => setActiveSection('signup')}
+              className="text-sm font-bold transition-colors duration-200"
+              style={{ color: activeSection === 'signup' ? 'var(--color-blue)' : 'var(--color-gray)' }}
+              onMouseEnter={(e) => activeSection !== 'signup' && ((e.currentTarget as HTMLElement).style.color = 'var(--color-blue)')}
+              onMouseLeave={(e) => activeSection !== 'signup' && ((e.currentTarget as HTMLElement).style.color = 'var(--color-gray)')}
+            >
+              Sign Up
+            </a>
+          </div>
         </div>
-      </nav>
+        </nav>
 
       {/* Hero Section */}
-      <section className="w-full flex flex-col items-center justify-center py-20 px-4">
+      <section id="home" className="w-full flex flex-col items-center justify-center py-20 px-4">
       <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-center mb-8 max-w-6xl leading-tight">
         Habit tracking that works<br />
         like a{" "}
@@ -235,7 +291,7 @@ export default function LandingPage() {
       </section>
 
       {/* Features Section */}
-      <section className="w-full max-w-6xl mx-auto text-center py-20 px-4 mt-20">
+      <section id="features" className="w-full max-w-6xl mx-auto text-center py-20 px-4 mt-20">
         <h2 className="text-xl font-bold mb-16 text-black">Features</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -349,15 +405,14 @@ export default function LandingPage() {
       </section>
 
       <section className="w-full max-w-6xl mx-auto text-center py-20 px-4 mt-10 flex justify-center">
-        <Button className="w-[300px] h-[60px] rounded-full font-extrabold text-lg shadow bg-black text-white flex items-center justify-center gap-2 relative overflow-hidden group transition-all duration-300 hover:scale-105">
-            <div className="absolute inset-0 w-[150%] h-full transform -skew-x-30 -translate-x-full group-hover:translate-x-[-12%] transition-transform duration-600 ease-in-out origin-left" style={{ background: 'linear-gradient(to right, var(--color-dark-blue), var(--color-blue))' }}></div>
-            <Sparkles className="size-6 relative z-10" />
-            <span className="relative z-10">Start Building Your Habits Today</span>
+        <Button className="w-[300px] h-[60px] rounded-full font-extrabold text-lg shadow bg-black text-white flex items-center justify-center gap-2 border-2 border-transparent transition-all duration-300 hover:scale-105 hover:bg-white hover:text-black" style={{ '--hover-border-color': 'var(--color-blue)' } as React.CSSProperties} onMouseEnter={(e) => e.currentTarget.style.borderColor = 'var(--color-blue)'} onMouseLeave={(e) => e.currentTarget.style.borderColor = 'transparent'}>
+            <Sparkles className="size-6 relative z-10 transition-colors duration-300 group-hover:text-black" />
+            <span className="relative z-10 transition-colors duration-300">Start Building Your Habits Today</span>
           </Button>
       </section>
 
       {/* Testimonials Section */}
-      <section className="w-full max-w-7xl mx-auto text-center py-20 px-4 mt-10">
+      <section id="testimonials" className="w-full max-w-7xl mx-auto text-center py-20 px-4 mt-10">
         <InfiniteMovingCards
           items={testimonials}
           direction="right"
@@ -369,11 +424,11 @@ export default function LandingPage() {
 
 
       {/* Footer */}
-      <footer className="w-full bg-white border-t border-gray/20 py-8 px-4 mt-20">
+      <footer className="w-full bg-white py-8 px-4 mt-20">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex flex-col items-center md:items-start">
             <h3 className="text-2xl font-bold" style={{ color: 'var(--color-black)' }}>HabitHub</h3>
-            <p className="text-base font-bold" style={{ color: 'var(--color-dark-blue)' }}>designed and developed by jesusselimm</p>
+            <p className="text-base font-bold" style={{ color: 'var(--color-dark-blue)' }}>design and develop by jesusselimm</p>
           </div>
           
           <div className="flex flex-col items-center md:items-end gap-2">
