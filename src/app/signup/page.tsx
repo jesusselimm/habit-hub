@@ -1,7 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Check, Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 
 export default function SignUpPage() {
@@ -47,7 +48,7 @@ export default function SignUpPage() {
 
           {/* Navigation Links */}
           <div className="flex items-center gap-8">
-            <a
+            <Link
               href="/"
               className="text-sm font-bold transition-colors duration-200"
               style={{ color: '#B5B5B5' }}
@@ -55,7 +56,7 @@ export default function SignUpPage() {
               onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = '#B5B5B5')}
             >
               Home
-            </a>
+            </Link>
             <a
               href="/pricing"
               className="text-sm font-bold transition-colors duration-200"

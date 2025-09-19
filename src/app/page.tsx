@@ -1,12 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
-import { useState } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Brain, ChartColumnBig, ClipboardClock, CircleFadingPlus, Plus, Rocket, RotateCw, Sparkles, User, UserRound, CircleFadingArrowUp } from "lucide-react";
+import { Brain, ChartColumnBig, ClipboardClock, CircleFadingPlus, Rocket, Sparkles, User, UserRound, CircleFadingArrowUp } from "lucide-react";
 import { CometCard } from "@/components/ui/comet-card";
 import { WobbleCard } from "@/components/ui/wobble-card";
-import { Skeleton } from "@/components/ui/skeleton";
 // Dynamic imports to prevent hydration issues
 const RotatingText = dynamic(() => import("@/components/ui/rotatingText"), {
   ssr: false,
@@ -42,7 +41,6 @@ const InfiniteMovingCards = dynamic(() => import("@/components/ui/infinite-movin
 });
 
 export default function LandingPage() {
-  const [activeSection, setActiveSection] = useState('home');
   
   const rotatingWords = [
     "Coach",
@@ -104,13 +102,13 @@ export default function LandingPage() {
 
           {/* Navigation Links */}
           <div className="flex items-center gap-8">
-            <a
+            <Link
               href="/"
               className="text-sm font-bold transition-colors duration-200"
               style={{ color: 'var(--color-blue)' }}
             >
               Home
-            </a>
+            </Link>
             <a
               href="/pricing"
               className="text-sm font-bold transition-colors duration-200"
@@ -229,9 +227,9 @@ export default function LandingPage() {
       <section className="w-full max-w-6xl mx-auto py-20 px-4 text-center mt-20">
         <h2 className="text-xl font-bold mb-6 text-black">Instant Onboarding</h2>
         <p className="text-center max-w-4xl mx-auto mb-16 text-l leading-relaxed" style={{ color: 'var(--color-black)' }}>
-          "No more endless forms or complex dashboards. Begin tracking<br />
+          &quot;No more endless forms or complex dashboards. Begin tracking<br />
           and improving your habits right away, with a platform that works<br />
-          as intuitively as you do."
+          as intuitively as you do.&quot;
         </p>
         
         {/* Steps */}

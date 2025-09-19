@@ -25,7 +25,7 @@ export default function PricingPage() {
 
           {/* Navigation Links */}
           <div className="flex items-center gap-8">
-            <a
+            <Link
               href="/"
               className="text-sm font-bold transition-colors duration-200"
               style={{ color: '#B5B5B5' }}
@@ -33,7 +33,7 @@ export default function PricingPage() {
               onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = '#B5B5B5')}
             >
               Home
-            </a>
+            </Link>
             <a
               href="/pricing"
               className="text-sm font-bold transition-colors duration-200"

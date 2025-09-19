@@ -26,7 +26,7 @@ export const InfiniteMovingCards = ({
 
   useEffect(() => {
     addAnimation();
-  }, []);
+  }, [addAnimation]);
   const [start, setStart] = useState(false);
   function addAnimation() {
     if (containerRef.current && scrollerRef.current) {
@@ -86,14 +86,14 @@ export const InfiniteMovingCards = ({
           pauseOnHover && "hover:[animation-play-state:paused]",
         )}
       >
-        {items.map((item, idx) => (
+        {items.map((item) => (
           <li
             className="relative w-[500px] max-w-full shrink-0 rounded-2xl border-2 border-white bg-gradient-to-b from-[#f5f5f5] to-[#ffffff] px-8 py-8 md:w-[550px] shadow-sm"
             key={item.name}
           >
             <blockquote className="text-left">
               <span className="relative z-20 text-base leading-[1.6] font-normal mb-6 block text-left" style={{ color: 'var(--color-black)' }}>
-                "{item.quote}"
+                &quot;{item.quote}&quot;
               </span>
               <div className="relative z-20 flex flex-row items-center gap-3 justify-start">
                 <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
