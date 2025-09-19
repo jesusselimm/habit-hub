@@ -105,52 +105,27 @@ export default function LandingPage() {
           {/* Navigation Links */}
           <div className="flex items-center gap-8">
             <a
-              href="#home"
-              onClick={() => setActiveSection('home')}
+              href="/"
               className="text-sm font-bold transition-colors duration-200"
-              style={{ color: activeSection === 'home' ? 'var(--color-blue)' : 'var(--color-gray)' }}
-              onMouseEnter={(e) => activeSection !== 'home' && ((e.currentTarget as HTMLElement).style.color = 'var(--color-blue)')}
-              onMouseLeave={(e) => activeSection !== 'home' && ((e.currentTarget as HTMLElement).style.color = 'var(--color-gray)')}
+              style={{ color: 'var(--color-blue)' }}
             >
               Home
             </a>
             <a
-              href="#features"
-              onClick={() => setActiveSection('features')}
+              href="/pricing"
               className="text-sm font-bold transition-colors duration-200"
-              style={{ color: activeSection === 'features' ? 'var(--color-blue)' : 'var(--color-gray)' }}
-              onMouseEnter={(e) => activeSection !== 'features' && ((e.currentTarget as HTMLElement).style.color = 'var(--color-blue)')}
-              onMouseLeave={(e) => activeSection !== 'features' && ((e.currentTarget as HTMLElement).style.color = 'var(--color-gray)')}
-            >
-              Features
-            </a>
-            <a
-              href="#testimonials"
-              onClick={() => setActiveSection('testimonials')}
-              className="text-sm font-bold transition-colors duration-200"
-              style={{ color: activeSection === 'testimonials' ? 'var(--color-blue)' : 'var(--color-gray)' }}
-              onMouseEnter={(e) => activeSection !== 'testimonials' && ((e.currentTarget as HTMLElement).style.color = 'var(--color-blue)')}
-              onMouseLeave={(e) => activeSection !== 'testimonials' && ((e.currentTarget as HTMLElement).style.color = 'var(--color-gray)')}
-            >
-              Testimonial
-            </a>
-            <a
-              href="#"
-              onClick={() => setActiveSection('pricing')}
-              className="text-sm font-bold transition-colors duration-200"
-              style={{ color: activeSection === 'pricing' ? 'var(--color-blue)' : 'var(--color-gray)' }}
-              onMouseEnter={(e) => activeSection !== 'pricing' && ((e.currentTarget as HTMLElement).style.color = 'var(--color-blue)')}
-              onMouseLeave={(e) => activeSection !== 'pricing' && ((e.currentTarget as HTMLElement).style.color = 'var(--color-gray)')}
+              style={{ color: '#B5B5B5' }}
+              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = 'var(--color-blue)')}
+              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = '#B5B5B5')}
             >
               Pricing
             </a>
             <a
-              href="#"
-              onClick={() => setActiveSection('signup')}
+              href="/signup"
               className="text-sm font-bold transition-colors duration-200"
-              style={{ color: activeSection === 'signup' ? 'var(--color-blue)' : 'var(--color-gray)' }}
-              onMouseEnter={(e) => activeSection !== 'signup' && ((e.currentTarget as HTMLElement).style.color = 'var(--color-blue)')}
-              onMouseLeave={(e) => activeSection !== 'signup' && ((e.currentTarget as HTMLElement).style.color = 'var(--color-gray)')}
+              style={{ color: '#B5B5B5' }}
+              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = 'var(--color-blue)')}
+              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = '#B5B5B5')}
             >
               Sign Up
             </a>
