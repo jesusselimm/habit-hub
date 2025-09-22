@@ -2,11 +2,12 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 export default function SignUpPage() {
   const [showPassword, setShowPassword] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -46,8 +47,8 @@ export default function SignUpPage() {
             </h1>
           </div>
 
-          {/* Navigation Links */}
-          <div className="flex items-center gap-8">
+          {/* Desktop Navigation Links */}
+          <div className="hidden md:flex items-center gap-8">
             <Link
               href="/"
               className="text-sm font-bold transition-colors duration-200"
@@ -74,7 +75,59 @@ export default function SignUpPage() {
               Sign Up
             </a>
           </div>
+
+          {/* Mobile Hamburger Button */}
+          <button
+            className="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors duration-200"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? (
+              <X className="w-6 h-6" style={{ color: 'var(--color-blue)' }} />
+            ) : (
+              <Menu className="w-6 h-6" style={{ color: 'var(--color-blue)' }} />
+            )}
+          </button>
         </div>
+
+        {/* Mobile Menu */}
+        <motion.div
+          className="md:hidden bg-white border-t border-gray-200 shadow-lg"
+          initial={false}
+          animate={{
+            height: isMenuOpen ? "auto" : 0,
+            opacity: isMenuOpen ? 1 : 0,
+          }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          style={{ overflow: "hidden" }}
+        >
+          <div className="px-4 py-4 space-y-4">
+            <Link
+              href="/"
+              className="block text-sm font-bold py-2 transition-colors duration-200"
+              style={{ color: 'var(--color-black)' }}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Home
+            </Link>
+            <a
+              href="/pricing"
+              className="block text-sm font-bold py-2 transition-colors duration-200"
+              style={{ color: 'var(--color-black)' }}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Pricing
+            </a>
+            <a
+              href="/signup"
+              className="block text-sm font-bold py-2 transition-colors duration-200"
+              style={{ color: 'var(--color-blue)' }}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Sign Up
+            </a>
+          </div>
+        </motion.div>
       </nav>
 
       {/* Main Content */}
@@ -259,17 +312,6 @@ export default function SignUpPage() {
                   />
                   Google
                 </Button>
-                
-                <Button
-                  type="button"
-                  variant="outline"
-                  className="w-full h-12 rounded-xl border-gray-200 hover:bg-gray-50 flex items-center justify-center gap-3 font-medium"
-                >
-                  <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                  </svg>
-                  Facebook
-                </Button>
               </div>
             </form>
           </motion.div>
@@ -277,6 +319,61 @@ export default function SignUpPage() {
           </div>
         </div>
       </div>
+
+      {/* Footer */}
+      <motion.footer 
+        className="w-full bg-white py-6 md:py-8 px-4 mt-20"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 1.0, ease: "easeOut" }}
+      >
+        <div className="max-w-6xl mx-auto">
+          {/* Mobile Layout */}
+          <div className="flex flex-col items-center text-center space-y-4 md:hidden">
+            <div className="flex flex-col items-center">
+              <h3 className="text-xl font-bold" style={{ color: 'var(--color-black)' }}>HabitHub</h3>
+              <p className="text-sm font-medium mt-1" style={{ color: 'var(--color-dark-blue)' }}>design and develop by jesusselimm</p>
+            </div>
+            
+            <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+              <Link href="/" className="text-sm font-medium text-black hover:text-blue transition-colors">
+                Home
+              </Link>
+              <Link href="/pricing" className="text-sm font-medium text-black hover:text-blue transition-colors">
+                Pricing
+              </Link>
+              <Link href="#" className="text-sm font-medium text-black hover:text-blue transition-colors">
+                Contact
+              </Link>
+            </div>
+            
+            <p className="text-xs font-medium" style={{ color: 'var(--color-dark-blue)' }}>© 2025 HabitHub. All rights reserved.</p>
+          </div>
+
+          {/* Desktop Layout */}
+          <div className="hidden md:flex justify-between items-center">
+            <div className="flex flex-col items-start">
+              <h3 className="text-2xl font-bold" style={{ color: 'var(--color-black)' }}>HabitHub</h3>
+              <p className="text-base font-medium" style={{ color: 'var(--color-dark-blue)' }}>design and develop by jesusselimm</p>
+            </div>
+            
+            <div className="flex flex-col items-end gap-2">
+              <div className="flex gap-6">
+                <Link href="/" className="text-base font-medium text-black hover:text-blue transition-colors">
+                  Home
+                </Link>
+                <Link href="/pricing" className="text-base font-medium text-black hover:text-blue transition-colors">
+                  Pricing
+                </Link>
+                <Link href="#" className="text-base font-medium text-black hover:text-blue transition-colors">
+                  Contact
+                </Link>
+              </div>
+              <p className="text-base font-medium" style={{ color: 'var(--color-dark-blue)' }}>© 2025 HabitHub. All rights reserved.</p>
+            </div>
+          </div>
+        </div>
+      </motion.footer>
     </main>
   );
 }
