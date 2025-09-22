@@ -123,8 +123,7 @@ export default function LandingPage() {
               className="text-sm font-bold transition-colors duration-200"
               style={{ color: '#B5B5B5' }}
               onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = 'var(--color-blue)')}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = '#B5B5B5')}
-            >
+              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = '#B5B5B5')}            >
               Sign Up
             </a>
           </div>
